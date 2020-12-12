@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+<!--  Action to open To-do Task list --> 
+    <act_window id="action_todo_task"
+      name="To-do Task"
+      res_model="todo.task"
+      view_mode="tree,form" />
+<!--  Menu item to open To-do Task list -->
+    <menuitem id="menu_todo_task"
+      name="Todos"
+      action="action_todo_task" /> 
+
+
+<!-- <record model="ir.actions.act_window" id="action_todo_task">
+    <field name="name">To-do Task</field>
+    <field name="res_model">todo.task</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="menu_todo_task" parent="menu_root" name="Todos" sequence="10"
+          action="action_todo_task"/> -->
+
+</odoo>
