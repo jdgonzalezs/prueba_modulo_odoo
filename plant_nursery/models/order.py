@@ -13,8 +13,7 @@ class Order(models.Model):
         ('confirm', 'Confirmed'), 
         ('cancel','Canceled'),
     ], default='draft')
-    # state=fields.Char("EstadoS")    
-    last_modification = fields.Datetime(readonly=True) 
+    last_modification = fields.Datetime(readonly=True)
      
     def write(self,values):
         # date format is "YYYY-MM-DD"

@@ -27,9 +27,16 @@
         'views/templates.xml',
         'views/todo_menu.xml',
         'views/todo_view.xml',
+        'views/task_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+    ],
+
+    'js': [
+        'static/src/js/diferencia.js',
+        'static/src/js/escribir.js',
+        'static/src/js/enviar_dato.js',
     ],
 }

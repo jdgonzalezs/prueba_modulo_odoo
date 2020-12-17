@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- <record id="view_form_todo_task" model="ir.ui.view">
+        <field name="name">To-do Task Form</field>
+        <field name="model">todo.task</field>
+        <field name="arch" type="xml">
+        <form>
+            <header>
+                <button name="do_toggle_done" type="object"
+                string="Toggle Done" class="oe_highlight" />
+                <button name="do_clear_done" type="object"
+                string="Clear All Done" />
+            </header>
+            <sheet>
+                <group name="group_top">
+                <group name="group_left">
+                    <field name="name"/>
+                </group>
+                <group name="group_right">
+                    <field name="is_done"/>
+                    <field name="active" readonly="1" />
+                </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record> -->
+
+    <template id="assets_backend" name="prueba_modulo assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+        <!-- <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script> -->
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/escribir.js" defer="True"></script>
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js" defer="True"></script>
+    </xpath>
+    </template>
+
+    <record model="ir.ui.view" id="todo_taks_kanban"> 
+        <field name="name">Todo Task views</field>
+        <field name="model">todo.task</field>
+        <field name="arch" type="xml">
+            <kanban string="Todo Tasks">
+                <field name="name"/>
+                <field name="progress_rate"/> 
+                <field name="maximum_rate"/>  
+                <templates> 
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <field name="name"/>
+                            </div>
+                            <div class="oe_kanba_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="progress_rate" widget="gauge" style="width:160px;height:120px;cursor:pointer" 
+                                        options="{'max_field': 'maximum_rate'}">Progeso
+                                    </field>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>     
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tasks_kanba"> 
+        <field name="name">Tasks</field>
+        <field name="res_model">todo.task</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem name="Task vista Kanba" id="todo_task_task_menu" 
+              parent="todo_root_menu" action="action_tasks_kanba"
+              sequence="2"   /> 
+</odoo>
